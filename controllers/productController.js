@@ -1,6 +1,6 @@
-import Product from "../models/productModel.js";
+const Product = require("../models/productModel");
 
-export const getProductContorller=async(req, res)=>{
+exports.getProductContorller=async(req, res)=>{
     try {
         const product=await Product.find();
         res.status(200).send(product);
@@ -9,7 +9,7 @@ export const getProductContorller=async(req, res)=>{
     }
 }
 
-export const addProductContorller=async(req, res)=>{
+exports.addProductContorller=async(req, res)=>{
     try {
         const product= new Product(req.body);
         await product.save();
